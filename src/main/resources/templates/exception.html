@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Luciano Giannelli, desarrollador, diseñador"/>
+    <meta name="Language" content="Spanish"/>
+    <link rel="icon" th:href="@{/img/vl.ico}"/>
+    <title>Error</title>
+    <link href="http://localhost:8080/request/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="page-header">Se ha producido un error.</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-1">
+            <br/>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3 class="panel-title">Error</h3></div>
+                <div class="panel-body">
+                    <br/>
+                    <div class="alert alert-danger" role="alert" th:text="${exceptionMsg}">EXCEPTION</div>
+                </div>
+                <div class="panel-footer">
+                    <div th:if="${back}">
+                        <a href="#" onclick="history.go(-1); return false;" class="btn btn-info">Volver</a>
+                    </div>
+                    <div th:if="${!back}">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="col-md-4 col-2">
+            <div class="well">
+                <p>Ante cualquier consulta no dudes en ponerte en contacto con nosotros. A continuación nuestros medios de comunicación.</p>
+                <p><strong>Teléfono:</strong> <span class="text-info">0221-8888 internos: 203 / 204</span></p>
+                <p><strong>Email:</strong> <span class="text-info">s&#111;porte_car&#100;l&#105;&#110;e&#64;&#104;&#111;tmai&#108;&#46;c&#111;m</span></p>
+                <p><strong>Horarios de Atención Comercial: </strong><span class="text-info">Lunes a Viernes de 9 a 17hs.</span></p>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <footer>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="pull-right pull">Diseño: Luciano Giannelli</p>
+            </div>
+        </div>
+    </footer>
+</div>
+<br/>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
