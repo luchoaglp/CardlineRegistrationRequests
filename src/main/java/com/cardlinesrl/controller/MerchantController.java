@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MerchantController {
 
-    //@Autowired
-    //MerchantService merchantService;
-
     private final MerchantService merchantService;
 
     public MerchantController(MerchantService merchantService) {

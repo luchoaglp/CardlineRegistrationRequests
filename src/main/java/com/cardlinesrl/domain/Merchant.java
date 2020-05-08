@@ -1,6 +1,5 @@
 package com.cardlinesrl.domain;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -8,22 +7,6 @@ import javax.persistence.*;
 @DiscriminatorValue("C")
 public class Merchant extends Participant {
 
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Integer id;
-    */
-/*
-    @Column(name = "id_plataforma")
-    private Integer plataformaId;
-
-    @Column(name = "merchant_name", length = 50, nullable = false)
-    private String merchantName;
-
-    @Column(name = "merchant_phone", nullable = false)
-    private String merchantPhone;
-*/
     @Column(name = "merchant_mail", nullable = false)
     private String merchantMail;
 
@@ -69,40 +52,6 @@ public class Merchant extends Participant {
 
     public Merchant() { }
 
-    /*
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    */
-    /*
-    public Integer getPlataformaId() {
-        return plataformaId;
-    }
-
-    public void setPlataformaId(Integer plataformaId) {
-        this.plataformaId = plataformaId;
-    }
-
-    public String getMerchantName() {
-        return merchantName;
-    }
-
-    public void setMerchantName(String merchantName) {
-        this.merchantName = merchantName;
-    }
-
-    public String getMerchantPhone() {
-        return merchantPhone;
-    }
-
-    public void setMerchantPhone(String merchantPhone) {
-        this.merchantPhone = merchantPhone;
-    }
-    */
     public String getMerchantMail() {
         return merchantMail;
     }

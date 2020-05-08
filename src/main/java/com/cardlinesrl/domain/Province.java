@@ -19,11 +19,6 @@ public class Province implements Serializable {
     @Column(name = "province_name", length = 30, nullable = false)
     private String provinceName;
 
-    /*
-    @OneToMany(mappedBy = "province", fetch = FetchType.LAZY)
-    private List<City> cities;
-    */
-
     public Province() {
     }
 

@@ -19,7 +19,6 @@ import java.util.Date;
 @Controller
 public class CVController {
 
-    //@Autowired
     private final ParticipantService participantService;
     private final MerchantRequestService merchantRequestService;
 

@@ -2,8 +2,6 @@ package com.cardlinesrl.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "abm_cities")
@@ -26,11 +24,6 @@ public class City implements Serializable {
     @ManyToOne
     @JoinColumn(name = "province_id", nullable = false)
     private Province province;
-
-    /*
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
-    private List<Merchant> merchants;
-    */
 
     public City() {
     }

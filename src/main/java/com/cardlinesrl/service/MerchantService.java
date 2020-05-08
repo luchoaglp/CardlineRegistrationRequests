@@ -25,7 +25,6 @@ public class MerchantService {
         return merchantRepository.findByOwnerNotSube(ownerId);
     }
 
-
     public Merchant findByVirtualId(Integer virtualId) {
         return merchantRepository.findByVirtualId(virtualId);
     }

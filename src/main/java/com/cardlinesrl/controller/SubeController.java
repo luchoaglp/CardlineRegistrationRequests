@@ -7,7 +7,6 @@ import com.cardlinesrl.service.MerchantRequestService;
 import com.cardlinesrl.service.MerchantService;
 import com.cardlinesrl.service.ParticipantService;
 import org.hibernate.exception.ConstraintViolationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -31,19 +30,14 @@ public class SubeController {
     private static final String UPLOADED_FOLDER = "/opt/tomcat8/webapps/request_img/";
     //private static String UPLOADED_FOLDER = "/home/ele/Datos/tomcat/apache-tomcat-7.0.69/webapps/request_img/";
 
-
-    @Autowired
-    MerchantRequestService merchantRequestService;
-
-    //@Autowired
-    //MerchantService merchantService;
-
     private final MerchantService merchantService;
     private final ParticipantService participantService;
+    private final MerchantRequestService merchantRequestService;
 
-    public SubeController(MerchantService merchantService, ParticipantService participantService) {
+    public SubeController(MerchantService merchantService, ParticipantService participantService, MerchantRequestService merchantRequestService) {
         this.merchantService = merchantService;
         this.participantService = participantService;
+        this.merchantRequestService = merchantRequestService;
     }
 
     @GetMapping("/sube")
@@ -74,7 +68,6 @@ public class SubeController {
                                         ModelMap model) {
 
         if(file.getSize() > 2048000) {
-
             bindingResult.addError(new ObjectError("merchantRequestFile", "La imagen debe ser menor a 2 MB."));
         }
 
@@ -118,7 +111,6 @@ public class SubeController {
     public String homeEdit(@RequestParam("reseller") Integer virtualId,
                            ModelMap model) throws Exception {
 
-        //Reseller r = resellerService.findByPlataformaId(reseller);
         Participant r = participantService.findByVirtualId(virtualId);
 
         if(r == null) {
@@ -185,7 +177,6 @@ public class SubeController {
             return "/sube/edit/success";
 
         } catch (ConstraintViolationException e) {
-
             throw new ConstraintViolationException("El comercio ya tiene una solicitud de alta de Sube.", e.getSQLException(), "");
         }
     }
