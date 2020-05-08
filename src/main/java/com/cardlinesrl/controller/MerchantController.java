@@ -2,7 +2,6 @@ package com.cardlinesrl.controller;
 
 import com.cardlinesrl.domain.Merchant;
 import com.cardlinesrl.service.MerchantService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MerchantController {
 
-    @Autowired
-    MerchantService merchantService;
+    //@Autowired
+    //MerchantService merchantService;
+
+    private final MerchantService merchantService;
+
+    public MerchantController(MerchantService merchantService) {
+        this.merchantService = merchantService;
+    }
+
 
     @RequestMapping(value = "/merchants/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Merchant> getMerchantByPlataformaId(@PathVariable("id") int plataformaId) {
+    public ResponseEntity<Merchant> getMerchantByPlataformaId(
+            @PathVariable("id") int virtualId) {
 
-        Merchant merchant = merchantService.findByPlataformaId(plataformaId);
+        Merchant merchant = merchantService.findByVirtualId(virtualId);
 
         if (merchant == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);

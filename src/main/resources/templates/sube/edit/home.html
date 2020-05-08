@@ -21,7 +21,7 @@
             <h3 class="page-header">Solicitud de Alta de Comercio Sube</h3>
         </div>
         <div class="col-md-12">
-            <h4>Bienvenido: <strong><span class="text-success" th:text="${reseller.resellerName}"></span></strong></h4>
+            <h4>Bienvenido: <strong><span class="text-success" th:text="${reseller.participantName}"></span></strong></h4>
         </div>
     </div>
     <div class="row">
@@ -43,7 +43,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="merchant : ${merchants}"><td th:text="${merchant.plataformaId}">1</td><td th:text="${merchant.merchantName}">1</td></tr>
+                            <tr th:each="merchant : ${merchants}"><td th:text="${merchant.virtualId}">1</td><td th:text="${merchant.participantName}">1</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -56,7 +56,7 @@
             <br/>
             <div class="alert alert-info" role="alert">Verifique y complete los datos antes de proceder con el alta.</div>
             <form action="#" th:object="${merchantRequest}" enctype="multipart/form-data" data-toggle="validator" method="post">
-                <input type="hidden" name="merchantOwnerName" th:attr="value = ${reseller.resellerName}"/>
+                <input type="hidden" name="merchantOwnerName" th:attr="value = ${reseller.participantName}"/>
                 <input type="hidden" th:field="*{plataformaId}" id="plataformaId"/>
                 <div class="row">
                     <div class="col-md-12">
@@ -291,7 +291,7 @@
 
 <script src="http://localhost:8080/request/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script src="http://localhost:8080/request/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="http://localhost:8080/request/js/jquery.dataTables.min.js" th:src="@{/js/jquery.dataTables.min.js}"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 <script src="http://localhost:8080/request/js/validator.min.js" th:src="@{/js/validator.min.js}"></script>
 <script src="http://localhost:8080/request/js/ie10-viewport-bug-workaround.js" th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
@@ -317,12 +317,12 @@ $(function() {
 
             var merchant = response;
 
-            $('#plataformaId').val(merchant.plataformaId);
+            $('#plataformaId').val(merchant.virtualId);
 
-            $('#name').val(merchant.merchantName);
+            $('#name').val(merchant.participantName);
             $('#lat').val(merchant.merchantLatitud);
             $('#long').val(merchant.merchantLongitud);
-            $('#phone').val(merchant.merchantPhone);
+            $('#phone').val(merchant.participantPhone);
             $('#street').val(merchant.merchantStreet);
             $('#street1').val(merchant.merchantAddress1);
             $('#street2').val(merchant.merchantAddress2);

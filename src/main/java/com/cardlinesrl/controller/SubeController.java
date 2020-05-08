@@ -1,11 +1,11 @@
 package com.cardlinesrl.controller;
 
 import com.cardlinesrl.domain.MerchantRequest;
-import com.cardlinesrl.domain.Reseller;
+import com.cardlinesrl.domain.Participant;
 import com.cardlinesrl.exception.ResellerNotFoundException;
 import com.cardlinesrl.service.MerchantRequestService;
 import com.cardlinesrl.service.MerchantService;
-import com.cardlinesrl.service.ResellerService;
+import com.cardlinesrl.service.ParticipantService;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,19 +31,26 @@ public class SubeController {
     private static final String UPLOADED_FOLDER = "/opt/tomcat8/webapps/request_img/";
     //private static String UPLOADED_FOLDER = "/home/ele/Datos/tomcat/apache-tomcat-7.0.69/webapps/request_img/";
 
-    @Autowired
-    ResellerService resellerService;
 
     @Autowired
     MerchantRequestService merchantRequestService;
 
-    @Autowired
-    MerchantService merchantService;
+    //@Autowired
+    //MerchantService merchantService;
+
+    private final MerchantService merchantService;
+    private final ParticipantService participantService;
+
+    public SubeController(MerchantService merchantService, ParticipantService participantService) {
+        this.merchantService = merchantService;
+        this.participantService = participantService;
+    }
 
     @GetMapping("/sube")
-    public String home(@RequestParam("reseller") Integer reseller, ModelMap model) throws ResellerNotFoundException {
+    public String home(@RequestParam("reseller") Integer virtualId,
+                       ModelMap model) throws ResellerNotFoundException {
 
-        Reseller r = resellerService.findByPlataformaId(reseller);
+        Participant r = participantService.findByVirtualId(virtualId);
 
         if(r == null) {
             throw new ResellerNotFoundException("Distribuidor no disponible, pongase en contacto con soporte.");
@@ -61,7 +68,7 @@ public class SubeController {
 
     @PostMapping("/sube")
     public String createMerchantRequest(@RequestParam("merchantRequestFile") MultipartFile file,
-                                        @RequestParam("reseller") Integer reseller,
+                                        @RequestParam("reseller") Integer virtualId,
                                         @Valid @ModelAttribute MerchantRequest merchantRequest,
                                         BindingResult bindingResult,
                                         ModelMap model) {
@@ -74,7 +81,7 @@ public class SubeController {
         if (bindingResult.hasErrors()) {
 
             model.addAttribute("requestFileError", "La imagen debe ser menor a 2 MB!!");
-            model.addAttribute("reseller", resellerService.findByPlataformaId(reseller));
+            model.addAttribute("reseller", participantService.findByVirtualId(virtualId));
 
             return "sube/home";
         }
@@ -85,7 +92,7 @@ public class SubeController {
 
         MerchantRequest m = merchantRequestService.add(merchantRequest);
 
-        model.addAttribute("reseller", resellerService.findByPlataformaId(reseller));
+        model.addAttribute("reseller", participantService.findByVirtualId(virtualId));
         model.addAttribute("merchantRequest", m);
 
         if(!file.isEmpty()) {
@@ -108,9 +115,11 @@ public class SubeController {
     }
 
     @GetMapping("/sube/edit")
-    public String homeEdit(@RequestParam("reseller") Integer reseller, ModelMap model) throws Exception {
+    public String homeEdit(@RequestParam("reseller") Integer virtualId,
+                           ModelMap model) throws Exception {
 
-        Reseller r = resellerService.findByPlataformaId(reseller);
+        //Reseller r = resellerService.findByPlataformaId(reseller);
+        Participant r = participantService.findByVirtualId(virtualId);
 
         if(r == null) {
             throw new ResellerNotFoundException("Distribuidor no disponible, pongase en contacto con soporte.");
@@ -122,7 +131,7 @@ public class SubeController {
 
         model.addAttribute("reseller", r);
         model.addAttribute("merchantRequest", m);
-        model.addAttribute("merchants", merchantService.findByMerchantOwnerId(r.getParticipantId()));
+        model.addAttribute("merchants", merchantService.findByOwnerNotSube(r.getParticipantId()));
 
         return "sube/edit/home";
     }
@@ -144,7 +153,7 @@ public class SubeController {
             if (bindingResult.hasErrors()) {
 
                 model.addAttribute("requestFileError", "La imagen debe ser menor a 2 MB.");
-                model.addAttribute("reseller", resellerService.findByPlataformaId(reseller));
+                model.addAttribute("reseller", participantService.findByVirtualId(reseller));
 
                 return "/sube/edit/home";
             }
@@ -155,7 +164,7 @@ public class SubeController {
 
             MerchantRequest m = merchantRequestService.add(merchantRequest);
 
-            model.addAttribute("reseller", resellerService.findByPlataformaId(reseller));
+            model.addAttribute("reseller", participantService.findByVirtualId(reseller));
             model.addAttribute("merchantRequest", m);
 
             if (!file.isEmpty()) {

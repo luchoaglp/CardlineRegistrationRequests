@@ -8,22 +8,19 @@ import javax.persistence.*;
 public class Reseller extends Participant {
 
     /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    */
-
     @Column(name = "id_plataforma")
     private Integer plataformaId;
+    */
 
+    /*
     @Basic(optional = false)
     @Column(name = "reseller_name")
     private String resellerName;
+    */
 
     public Reseller() { }
 
+    /*
     public Integer getPlataformaId() {
         return plataformaId;
     }
@@ -31,7 +28,9 @@ public class Reseller extends Participant {
     public void setPlataformaId(Integer plataformaId) {
         this.plataformaId = plataformaId;
     }
+    */
 
+    /*
     public String getResellerName() {
         return resellerName;
     }
@@ -48,4 +47,5 @@ public class Reseller extends Participant {
                 ", resellerName='" + resellerName + '\'' +
                 '}';
     }
+    */
 }

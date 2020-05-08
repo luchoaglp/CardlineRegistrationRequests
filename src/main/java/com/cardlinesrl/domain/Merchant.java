@@ -14,7 +14,7 @@ public class Merchant extends Participant {
     @Column(name = "id", nullable = false)
     private Integer id;
     */
-
+/*
     @Column(name = "id_plataforma")
     private Integer plataformaId;
 
@@ -23,7 +23,7 @@ public class Merchant extends Participant {
 
     @Column(name = "merchant_phone", nullable = false)
     private String merchantPhone;
-
+*/
     @Column(name = "merchant_mail", nullable = false)
     private String merchantMail;
 
@@ -78,7 +78,7 @@ public class Merchant extends Participant {
         this.id = id;
     }
     */
-
+    /*
     public Integer getPlataformaId() {
         return plataformaId;
     }
@@ -102,7 +102,7 @@ public class Merchant extends Participant {
     public void setMerchantPhone(String merchantPhone) {
         this.merchantPhone = merchantPhone;
     }
-
+    */
     public String getMerchantMail() {
         return merchantMail;
     }
@@ -219,9 +219,6 @@ public class Merchant extends Participant {
     public String toString() {
         return "Merchant{" +
                 "participantId=" + participantId +
-                ", plataformaId=" + plataformaId +
-                ", merchantName='" + merchantName + '\'' +
-                ", merchantPhone='" + merchantPhone + '\'' +
                 ", merchantMail='" + merchantMail + '\'' +
                 ", merchantCuit='" + merchantCuit + '\'' +
                 ", merchantLatitud='" + merchantLatitud + '\'' +

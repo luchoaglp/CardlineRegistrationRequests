@@ -19,7 +19,7 @@
             <h3 class="page-header">Solicitud de Alta de Comercio Sube</h3>
         </div>
         <div class="col-md-12">
-            <h4>Bienvenido: <strong><span class="text-success" th:text="${reseller.resellerName}"></span></strong></h4>
+            <h4>Bienvenido: <strong><span class="text-success" th:text="${reseller.participantName}"></span></strong></h4>
         </div>
     </div>
     <div class="row">
@@ -29,7 +29,7 @@
                 <div class="alert alert-danger" role="alert" th:text="${requestFileError}">EXCEPTION</div>
             </div>
             <form action="#" th:object="${merchantRequest}" enctype="multipart/form-data" data-toggle="validator" method="post">
-                <input type="hidden" name="merchantOwnerName" th:attr="value = ${reseller.resellerName}"/>
+                <input type="hidden" name="merchantOwnerName" th:attr="value = ${reseller.participantName}"/>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
