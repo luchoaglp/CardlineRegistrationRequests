@@ -39,7 +39,7 @@
                 <li class="list-group-item active"><strong>Observaciones: <span class="text-info" th:text="${merchantRequest.merchantRequestObs}">Obs</span></strong></li>
                 <li class="list-group-item active"><strong>Días y horarios de atención: <span class="text-info" th:text="${merchantRequest.merchantRequestSchedule}">Obs</span></strong></li>
             </ul>
-            <a th:href="@{'/sube/edit?reseller=' + ${reseller.plataformaId}}" class="btn btn-success">Llenar otra solicitud</a>
+            <a th:href="@{'/sube/edit?reseller=' + ${reseller.virtualId}}" class="btn btn-success">Llenar otra solicitud</a>
         </div>
         <br/>
         <div class="col-md-4 col-2">
