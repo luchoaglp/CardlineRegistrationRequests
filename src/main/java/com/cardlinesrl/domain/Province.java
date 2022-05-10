@@ -2,10 +2,9 @@ package com.cardlinesrl.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
-@Table(name = "abm_provinces")
+@Table(name = "provinces")
 public class Province implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -13,7 +12,7 @@ public class Province implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "province_id")
+    @Column(name = "id")
     private Integer provinceId;
 
     @Column(name = "province_name", length = 30, nullable = false)
