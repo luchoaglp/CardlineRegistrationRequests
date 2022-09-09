@@ -27,16 +27,17 @@
             <ul class="list-group">
                 <li class="list-group-item"><strong>Solicitud: <span class="text-info" th:text="${merchantRequest.requestId}">ID</span></strong></li>
                 <li class="list-group-item active"><strong>Nombre del comercio: <span class="text-info" th:text="${merchantRequest.merchantRequestName}">Name</span></strong></li>
-                <li class="list-group-item"><strong>Teléfono: <span class="text-info" th:text="${merchantRequest.merchantRequestPhone}">Phone</span></strong></li>
-                <li class="list-group-item active"><strong>Dirección: <span class="text-info" th:text="|${merchantRequest.merchantRequestStreet} e/ ${merchantRequest.merchantRequestStreet1} y ${merchantRequest.merchantRequestStreet2} N ${merchantRequest.merchantRequestStreetNumber}|">Address</span></strong></li>
-                <li class="list-group-item"><strong>Provincia: <span class="text-info" th:text="${merchantRequest.merchantRequestProvince}">Province</span></strong></li>
-                <li class="list-group-item active"><strong>Ciudad: <span class="text-info" th:text="${merchantRequest.merchantRequestCity}">City</span></strong></li>
-                <li class="list-group-item"><strong>Latitud: <span class="text-info" th:text="${merchantRequest.merchantRequestLat}">Province</span></strong></li>
-                <li class="list-group-item active"><strong>Longitud: <span class="text-info" th:text="${merchantRequest.merchantRequestLong}">City</span></strong></li>
-                <li class="list-group-item"><strong>Email: <span class="text-info" th:text="${merchantRequest.merchantRequestEmail}">Email</span></strong></li>
-                <li class="list-group-item active"><strong>Cuit: <span class="text-info" th:text="|${merchantRequest.merchantRequestCuit1}-${merchantRequest.merchantRequestCuit2}-${merchantRequest.merchantRequestCuit3}|">Cuit</span></strong></li>
-                <li class="list-group-item"><strong>Forma de Venta: <span class="text-info" th:text="${merchantRequest.merchantRequestDevice}">Device</span></strong></li>
-                <li class="list-group-item active"><strong>Observaciones: <span class="text-info" th:text="${merchantRequest.merchantRequestObs}">Obs</span></strong></li>
+                <li class="list-group-item"><strong>Nombre legal: <span class="text-info" th:text="${merchantRequest.realName}">Name</span></strong></li>
+                <li class="list-group-item active"><strong>Teléfono: <span class="text-info" th:text="${merchantRequest.merchantRequestPhone}">Phone</span></strong></li>
+                <li class="list-group-item"><strong>Dirección: <span class="text-info" th:text="|${merchantRequest.merchantRequestStreet} e/ ${merchantRequest.merchantRequestStreet1} y ${merchantRequest.merchantRequestStreet2} N ${merchantRequest.merchantRequestStreetNumber}|">Address</span></strong></li>
+                <li class="list-group-item active"><strong>Provincia: <span class="text-info" th:text="${merchantRequest.merchantRequestProvince}">Province</span></strong></li>
+                <li class="list-group-item"><strong>Ciudad: <span class="text-info" th:text="${merchantRequest.merchantRequestCity}">City</span></strong></li>
+                <li class="list-group-item active"><strong>Latitud: <span class="text-info" th:text="${merchantRequest.merchantRequestLat}">Province</span></strong></li>
+                <li class="list-group-item"><strong>Longitud: <span class="text-info" th:text="${merchantRequest.merchantRequestLong}">City</span></strong></li>
+                <li class="list-group-item active"><strong>Email: <span class="text-info" th:text="${merchantRequest.merchantRequestEmail}">Email</span></strong></li>
+                <li class="list-group-item"><strong>Cuit: <span class="text-info" th:text="|${merchantRequest.merchantRequestCuit1}-${merchantRequest.merchantRequestCuit2}-${merchantRequest.merchantRequestCuit3}|">Cuit</span></strong></li>
+                <li class="list-group-item active"><strong>Forma de Venta: <span class="text-info" th:text="${merchantRequest.merchantRequestDevice}">Device</span></strong></li>
+                <li class="list-group-item"><strong>Observaciones: <span class="text-info" th:text="${merchantRequest.merchantRequestObs}">Obs</span></strong></li>
                 <li class="list-group-item active"><strong>Días y horarios de atención: <span class="text-info" th:text="${merchantRequest.merchantRequestSchedule}">Obs</span></strong></li>
             </ul>
             <a th:href="@{'/sube/edit?reseller=' + ${reseller.virtualId}}" class="btn btn-success">Llenar otra solicitud</a>

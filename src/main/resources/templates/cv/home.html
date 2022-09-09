@@ -30,8 +30,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Nombre del comercio <small class="has-errors">*</small></label>
+                            <label for="name">Nombre del comercio <small class="has-errors">*</small></label>
                             <input type="text" th:field="*{merchantRequestName}" id="name" maxlength="50" class="form-control" placeholder="Nombre del comercio" required="required"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="realName">Nombre legal</label>
+                            <input type="text" th:field="*{realName}" id="realName" maxlength="50" class="form-control" placeholder="Nombre legal"/>
                         </div>
                     </div>
                 </div>
@@ -90,14 +98,13 @@
                         <div class="form-group">
                             <label>Provincia <small class="has-errors">*</small></label>
                             <select th:field="*{merchantRequestProvince}" class="form-control">
-                                <option value="BUENOS AIRES - GBA">BUENOS AIRES - GBA</option>
-                                <option value="BUENOS AIRES - INTERIOR" selected="selected">BUENOS AIRES - INTERIOR</option>
+                                <option value="BUENOS AIRES" selected="selected">BUENOS AIRES</option>
                                 <option value="CABA">CABA</option>
                                 <option value="CATAMARCA">CATAMARCA</option>
-                                <option value="CORDOBA">CORDOBA</option>
-                                <option value="CORRIENTES">CORRIENTES</option>
                                 <option value="CHACO">CHACO</option>
                                 <option value="CHUBUT">CHUBUT</option>
+                                <option value="CORRIENTES">CORRIENTES</option>
+                                <option value="CORDOBA">CORDOBA</option>
                                 <option value="ENTRE RIOS">ENTRE RIOS</option>
                                 <option value="FORMOSA">FORMOSA</option>
                                 <option value="JUJUY">JUJUY</option>
@@ -112,7 +119,7 @@
                                 <option value="SAN LUIS">SAN LUIS</option>
                                 <option value="SANTA CRUZ">SANTA CRUZ</option>
                                 <option value="SANTA FE">SANTA FE</option>
-                                <option value="SANTIAGO  DEL ESTERO">SANTIAGO  DEL ESTERO</option>
+                                <option value="SANTIAGO DEL ESTERO">SANTIAGO DEL ESTERO</option>
                                 <option value="TIERRA DEL FUEGO">TIERRA DEL FUEGO</option>
                                 <option value="TUCUMAN">TUCUMAN</option>
                             </select>

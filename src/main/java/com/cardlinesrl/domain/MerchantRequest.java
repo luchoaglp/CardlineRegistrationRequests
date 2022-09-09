@@ -21,6 +21,9 @@ public class MerchantRequest {
     @Column(name = "merchant_request_name", length = 50, nullable = false)
     private String merchantRequestName;
 
+    @Column(name = "real_name", length = 50)
+    private String realName;
+
     @Column(name = "merchant_owner_name", length = 50, nullable = false)
     private String merchantOwnerName;
 
@@ -315,4 +318,11 @@ public class MerchantRequest {
         this.merchantRequestSchedule = merchantRequestSchedule;
     }
 
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 }

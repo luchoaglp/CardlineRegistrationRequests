@@ -138,7 +138,6 @@ public class SubeController {
         try {
 
             if (file.getSize() > 2048000) {
-
                 bindingResult.addError(new ObjectError("merchantRequestFile", "La imagen debe ser menor a 2 MB."));
             }
 

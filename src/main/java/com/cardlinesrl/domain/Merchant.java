@@ -7,6 +7,9 @@ import javax.persistence.*;
 @DiscriminatorValue("C")
 public class Merchant extends Participant {
 
+    @Column(name = "real_name", length = 50)
+    private String realName;
+
     @Column(name = "merchant_mail", nullable = false)
     private String merchantMail;
 
@@ -162,6 +165,14 @@ public class Merchant extends Participant {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     @Override
