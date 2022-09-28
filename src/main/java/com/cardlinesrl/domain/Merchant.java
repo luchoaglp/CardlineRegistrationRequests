@@ -22,12 +22,6 @@ public class Merchant extends Participant {
     @Column(name = "merchant_longitud", nullable = false)
     private String merchantLongitud;
 
-    @Column(name = "merchant_active", nullable = false)
-    private Boolean merchantActive;
-
-    @Column(name = "merchant_visible", nullable = false)
-    private Boolean merchantVisible;
-
     @Column(name = "merchant_owner_plataforma")
     private Integer merchantOwnerId;
 
@@ -85,22 +79,6 @@ public class Merchant extends Participant {
 
     public void setMerchantLongitud(String merchantLongitud) {
         this.merchantLongitud = merchantLongitud;
-    }
-
-    public Boolean getMerchantActive() {
-        return merchantActive;
-    }
-
-    public void setMerchantActive(Boolean merchantActive) {
-        this.merchantActive = merchantActive;
-    }
-
-    public Boolean getMerchantVisible() {
-        return merchantVisible;
-    }
-
-    public void setMerchantVisible(Boolean merchantVisible) {
-        this.merchantVisible = merchantVisible;
     }
 
     public Integer getMerchantOwnerId() {
@@ -183,8 +161,6 @@ public class Merchant extends Participant {
                 ", merchantCuit='" + merchantCuit + '\'' +
                 ", merchantLatitud='" + merchantLatitud + '\'' +
                 ", merchantLongitud='" + merchantLongitud + '\'' +
-                ", merchantActive=" + merchantActive +
-                ", merchantVisible=" + merchantVisible +
                 ", merchantOwnerId=" + merchantOwnerId +
                 ", merchantStreet='" + merchantStreet + '\'' +
                 ", merchantAddress1='" + merchantAddress1 + '\'' +
