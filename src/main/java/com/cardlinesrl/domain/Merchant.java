@@ -22,9 +22,6 @@ public class Merchant extends Participant {
     @Column(name = "merchant_longitud", nullable = false)
     private String merchantLongitud;
 
-    @Column(name = "merchant_owner_plataforma")
-    private Integer merchantOwnerId;
-
     @Column(name = "merchant_street", length = 70, nullable = false)
     private String merchantStreet;
 
@@ -79,14 +76,6 @@ public class Merchant extends Participant {
 
     public void setMerchantLongitud(String merchantLongitud) {
         this.merchantLongitud = merchantLongitud;
-    }
-
-    public Integer getMerchantOwnerId() {
-        return merchantOwnerId;
-    }
-
-    public void setMerchantOwnerId(Integer merchantOwnerId) {
-        this.merchantOwnerId = merchantOwnerId;
     }
 
     public String getMerchantStreet() {
@@ -161,7 +150,6 @@ public class Merchant extends Participant {
                 ", merchantCuit='" + merchantCuit + '\'' +
                 ", merchantLatitud='" + merchantLatitud + '\'' +
                 ", merchantLongitud='" + merchantLongitud + '\'' +
-                ", merchantOwnerId=" + merchantOwnerId +
                 ", merchantStreet='" + merchantStreet + '\'' +
                 ", merchantAddress1='" + merchantAddress1 + '\'' +
                 ", merchantAddress2='" + merchantAddress2 + '\'' +
